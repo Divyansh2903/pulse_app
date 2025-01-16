@@ -1,4 +1,4 @@
-import 'package:attento_assignment/view/screens/home_screen.dart';
+import 'package:attento_assignment/view/screens/home/home_screen.dart';
 import 'package:attento_assignment/view_model/home_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

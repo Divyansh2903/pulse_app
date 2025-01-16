@@ -1,14 +1,16 @@
 import 'package:attento_assignment/view/common/utils/timeAgo.dart';
 import 'package:attento_assignment/view/common/widgets/skeleton_news_card.dart';
+import 'package:attento_assignment/view/screens/home/views/news_detail_view.dart';
+import 'package:attento_assignment/view/utils/navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-import '../../view_model/home_provider.dart';
-import '../common/widgets/news_home_card.dart';
-import '../constants/colors.dart';
-import '../constants/textstyles.dart';
+import '../../../view_model/home_provider.dart';
+import '../../common/widgets/news_home_card.dart';
+import '../../constants/colors.dart';
+import '../../constants/textstyles.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -83,12 +85,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           return NewsHomeCard(
 
                             cardColor: cardColor,
-                            title: article.title,
-                            author: article.author ?? "Unknown Author",
-                            description: article.description,
-                            updatedTime: timeAgo(article.publishedAt),
-                            url: article.url,
-                            urlToImage: article.urlToImage ?? '',
+                            onTap: () {
+                           navigate(context, NewsDetailView(article: article, bgColor: cardColor));
+                            },
+                           article: article,
                           );
                         }))
               // Expanded(
